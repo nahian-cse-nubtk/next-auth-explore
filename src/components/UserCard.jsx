@@ -6,8 +6,8 @@ const UserCard = () => {
     const session = useSession()
 
     return (
-        <div>
-            <h1>User in client side</h1>
+        <div className='text-center'>
+            <h1 className='text-2xl font-bold'>User in client side</h1>
             <div>
                 {
                     JSON.stringify(session)

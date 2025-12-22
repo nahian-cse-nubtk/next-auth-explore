@@ -29,11 +29,18 @@ export default async function Home() {
         <h2 className="text-5xl">NEXT AUTH</h2>
       </div>
       <div className="flex gap-5">
-        <SignOutButton></SignOutButton>
+       {
+        session?.user?<SignOutButton></SignOutButton>:<>
         <LoginButton></LoginButton>
         <Link href={"/register"} className="btn">
           Register
         </Link>
+        </>
+       }
+
+
+
+
       </div>
       <div>
         <h1>{JSON.stringify(session)}</h1>
