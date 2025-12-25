@@ -41,6 +41,9 @@ export const authOptions = {
     return true
   },
   async redirect({ url, baseUrl }) {
+    
+    if (url.startsWith("/")) return `${baseUrl}${url}`
+    if (new URL(url).origin === baseUrl) return url
     return baseUrl
   },
   async session({ session, token, user }) {
@@ -50,9 +53,7 @@ export const authOptions = {
     return session
   },
   async jwt({ token, user, account, profile, isNewUser }) {
-    if(user){
-        token.role = user.role
-    }
+
     return token
   }
 }
